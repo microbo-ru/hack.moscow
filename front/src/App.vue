@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Статистика</router-link>|
-      <router-link to="/about">Бив Дифф</router-link>|
+      <router-link to="/BivDif">Бив Дифф</router-link>|
       <router-link to="/nukemap">Карта</router-link>|
       <router-link to="/summvis">Наглядность</router-link>|
       <router-link to="/about">О нас</router-link>
