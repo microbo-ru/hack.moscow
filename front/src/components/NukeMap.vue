@@ -30,14 +30,37 @@ export default {
   },
   mounted() {
     var H = window.H;
+    var pixelRatio = 2;
+    const defaultLayers = this.platform.createDefaultLayers({
+      tileSize: 256 * pixelRatio
+    });
+
     this.map = new H.Map(
       this.$refs.map,
-      this.platform.createDefaultLayers().normal.map,
+      this.platform
+        .getMapTileService({
+          type: "base"
+        })
+        .createTileLayer(
+          "maptile",
+          "reduced.day",
+          256 * pixelRatio, // bigger tile size for retina
+          "png"
+        ),
       {
-        zoom: 10,
-        center: { lng: this.lng, lat: this.lat }
+        center: new H.geo.Point(29, -95),
+        zoom: 4,
+        style: "default",
+        pixelRatio: pixelRatio
       }
     );
+
+    const behavior = new H.mapevents.Behavior(
+      new H.mapevents.MapEvents(this.map)
+    );
+    let ui = H.ui.UI.createDefault(this.map, defaultLayers);
+    ui.removeControl("mapsettings");
+    console.log(behavior);
   }
 };
 </script>
