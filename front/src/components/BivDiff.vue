@@ -1,16 +1,20 @@
 <template>
   <v-row>
     <v-col>
-      {{left}}
+      <!-- {{left}} -->
+      <person :data="left"/>
     </v-col>
     <v-col>
-      {{right}}
+      <!-- {{right}} -->
+      <person :data="right"/>
     </v-col>
   </v-row>
 </template>
 
 <script>
 //import * as d3 from "d3";
+import Person from "../components/Person";
+
 export default {
   name: "BivDif",
   data() {
@@ -36,6 +40,9 @@ export default {
   },
   created() {
     this.fetch_data();
+  },
+  components: {
+    Person
   }
 };
 </script>
