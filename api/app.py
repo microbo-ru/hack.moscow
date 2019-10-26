@@ -47,5 +47,5 @@ def right():
 
 @app.route('/api/nagl')
 def nagl():
-    ids = 58951
+    ids = 32283
     return Response(json.dumps(df[str(ids)]), headers={"Content-type": "application/json"})
