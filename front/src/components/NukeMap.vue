@@ -5,6 +5,19 @@
 </template>
 
 <script>
+function getCoordByName(name) {
+  return fetch(
+    `https://geocode-maps.yandex.ru/1.x/?apikey=2d121788-cbff-41a5-9cfb-62e349951e8b&format=json&geocode=${name}`
+  ).then(response => {
+    if (response.ok) {
+      return response.json().then(json => {
+        return json.response.GeoObjectCollection.featureMember[0].GeoObject
+          .Point;
+      });
+    }
+  });
+}
+
 export default {
   name: "HereMap",
   data() {
@@ -61,6 +74,11 @@ export default {
     let ui = H.ui.UI.createDefault(this.map, defaultLayers);
     ui.removeControl("mapsettings");
     console.log(behavior);
+
+    var circle = new H.map.Circle({ lat: 52.51, lng: 13.4 }, 8000);
+    this.map.addObject(circle);
+
+    getCoordByName("Челябинск").then(console.log);
   }
 };
 </script>
