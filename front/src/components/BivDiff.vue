@@ -1,5 +1,8 @@
 <template>
-  <div>{{summ}}</div>
+  <div>
+    <div>{{left}}</div>
+    <div>{{right}}</div>
+  </div>
 </template>
 
 <script>
@@ -8,12 +11,19 @@ export default {
   name: "BivDif",
   data() {
     return {
-      summ: {}
+      left: {},
+      right: {}
     };
   },
   methods: {
     async fetch_data() {
-      this.summ = await fetch("http://localhost:5000/api/map", {
+      this.left = await fetch("http://localhost:5000/api/left", {
+        "Content-type": "application/json"
+      }).then(res => {
+        return res.json();
+      });
+
+      this.right = await fetch("http://localhost:5000/api/right", {
         "Content-type": "application/json"
       }).then(res => {
         return res.json();
