@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>|
-      <router-link to="/nukemap">NukeMap</router-link>|
-      <router-link to="/summvis">SummVis</router-link>
+      <router-link to="/">Статистика</router-link>|
+      <router-link to="/about">Бив Дифф</router-link>|
+      <router-link to="/nukemap">Карта</router-link>|
+      <router-link to="/summvis">Наглядность</router-link>|
+      <router-link to="/about">О нас</router-link>
     </div>
     <router-view />
   </div>

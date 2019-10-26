@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import NukeMapView from "../views/NukeMapView.vue";
 import summvis from "../views/SummVisView.vue";
+import bivdif from "../views/BivDifView.vue";
+import about from "../views/AboutView.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -11,15 +13,7 @@ const routes = [
     name: "home",
     component: Home
   },
-  {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  },
+
   {
     path: "/nukemap",
     name: "nukemap",
@@ -29,6 +23,16 @@ const routes = [
     path: "/summvis",
     name: "sumvis",
     component: summvis
+  },
+  {
+    path: "/BivDif",
+    name: "bivdif",
+    component: bivdif
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: about
   }
 ];
 
