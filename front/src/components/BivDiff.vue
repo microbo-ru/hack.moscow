@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <div>{{left}}</div>
-    <div>{{right}}</div>
-  </div>
+  <v-row>
+    <v-col>
+      {{left}}
+    </v-col>
+    <v-col>
+      {{right}}
+    </v-col>
+  </v-row>
 </template>
 
 <script>
