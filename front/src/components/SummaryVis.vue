@@ -1,5 +1,5 @@
 <template>
-  <div>123</div>
+  <div>{{person_info}}</div>
 </template>
 
 <script>
@@ -8,12 +8,12 @@ export default {
   name: "SummVis",
   data() {
     return {
-      summ: {}
+      person_info: {}
     };
   },
   methods: {
     async fetch_data() {
-      this.summ = await fetch("http://localhost:5000/api/map", {
+      this.person_info = await fetch("http://localhost:5000/api/nagl", {
         "Content-type": "application/json"
       }).then(res => {
         return res.json();
