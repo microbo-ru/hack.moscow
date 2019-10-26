@@ -1,3 +1,4 @@
 declarations.json
 .ipynb_checkpoints
 persons_parsed.json
+__pycache__
