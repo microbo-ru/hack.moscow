@@ -2,3 +2,4 @@ declarations.json
 .ipynb_checkpoints
 persons_parsed.json
 __pycache__
+persons_parsed_with_region.json
