@@ -41,6 +41,11 @@ def summarize_person(person):
         summ["square"] += real_estate["square"]
   return summ
 
+
+def download_dump():
+  url = "https://declarator.org/media/dumps/declarations.json"
+
+  
 person = get_dec_by_name("Струков Константин Иванович")
 summ = summarize_person(person)
 pp.pprint(summ)
