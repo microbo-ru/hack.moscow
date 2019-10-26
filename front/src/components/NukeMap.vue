@@ -11,13 +11,87 @@ function getCoordByName(name) {
   ).then(response => {
     if (response.ok) {
       return response.json().then(json => {
-        return json.response.GeoObjectCollection.featureMember[0].GeoObject
-          .Point;
+        console.log(json);
+        return json.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos
+          .split(" ")
+          .map(parseFloat);
       });
     }
   });
 }
 
+function addCircleMarker(name, map, behavior, H) {
+  getCoordByName(name).then(function(res) {
+    console.log(res);
+    var circle = new H.map.Circle({ lat: res[1], lng: res[0] }, 8000);
+    map.addObject(circle);
+    addDraggableMarker(map, behavior, H, res[1], res[0]); //    menyaem mestami
+  });
+}
+function addDraggableMarker(map, behavior, H, _lat, _lng) {
+  var marker = new H.map.Marker(
+    { lat: _lat, lng: _lng },
+    {
+      // mark the object as volatile for the smooth dragging
+      volatility: true
+    }
+  );
+  // Ensure that the marker can receive drag events
+  marker.draggable = true;
+  map.addObject(marker);
+
+  // disable the default draggability of the underlying map
+  // and calculate the offset between mouse and target's position
+  // when starting to drag a marker object:
+  map.addEventListener(
+    "dragstart",
+    function(ev) {
+      var target = ev.target,
+        pointer = ev.currentPointer;
+      if (target instanceof H.map.Marker) {
+        var targetPosition = map.geoToScreen(target.getGeometry());
+        target["offset"] = new H.math.Point(
+          pointer.viewportX - targetPosition.x,
+          pointer.viewportY - targetPosition.y
+        );
+        behavior.disable();
+      }
+    },
+    false
+  );
+
+  // re-enable the default draggability of the underlying map
+  // when dragging has completed
+  map.addEventListener(
+    "dragend",
+    function(ev) {
+      var target = ev.target;
+      if (target instanceof H.map.Marker) {
+        behavior.enable();
+      }
+    },
+    false
+  );
+
+  // Listen to the drag event and move the position of the marker
+  // as necessary
+  map.addEventListener(
+    "drag",
+    function(ev) {
+      var target = ev.target,
+        pointer = ev.currentPointer;
+      if (target instanceof H.map.Marker) {
+        target.setGeometry(
+          map.screenToGeo(
+            pointer.viewportX - target["offset"].x,
+            pointer.viewportY - target["offset"].y
+          )
+        );
+      }
+    },
+    false
+  );
+}
 export default {
   name: "HereMap",
   data() {
@@ -73,12 +147,10 @@ export default {
     );
     let ui = H.ui.UI.createDefault(this.map, defaultLayers);
     ui.removeControl("mapsettings");
-    console.log(behavior);
 
-    var circle = new H.map.Circle({ lat: 52.51, lng: 13.4 }, 8000);
-    this.map.addObject(circle);
-
-    getCoordByName("Челябинск").then(console.log);
+    var map = this.map;
+    getCoordByName("Саратов").then(console.log);
+    addCircleMarker("Санкт-Петербург", map, behavior, H);
   }
 };
 </script>
