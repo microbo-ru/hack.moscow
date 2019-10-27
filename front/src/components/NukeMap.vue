@@ -1,6 +1,21 @@
 <template>
   <div class="here-map">
     <div ref="map" v-bind:style="{ width: width, height: height }"></div>
+    <div id="text1">
+      Лысакова Ирина + семья
+      <br />
+      <b>104145571 кв.м</b>
+    </div>
+    <div id="text2">
+      Семья Лысаковой Ирины
+      <br />
+      <b>52072785 кв.м</b>
+    </div>
+    <div id="text3">
+      Антошевский Александр+ семья
+      <br />
+      <b>44853 кв.м</b>
+    </div>
   </div>
 </template>
 
@@ -58,6 +73,7 @@ export default {
         "Content-type": "application/json"
       }).then(res => {
         res.json().then(res => {
+          console.log(res);
           let sqa = res[0]["years"][2016]["total_sq"];
           let sqb = res[1]["years"][2018]["total_sq"];
           let sqfama = 52072785.99999999;
@@ -87,6 +103,7 @@ export default {
               }
             }
           );
+
           map.addObject(circle3);
           console.log(sqa, sqb);
         });
@@ -134,4 +151,26 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#text1 {
+  position: absolute;
+  top: 460px;
+  left: 770px;
+  z-index: 100;
+  font-size: 15px;
+}
+#text2 {
+  position: absolute;
+  top: 610px;
+  left: 880px;
+  z-index: 100;
+  font-size: 15px;
+}
+#text3 {
+  position: absolute;
+  top: 540px;
+  left: 910px;
+  z-index: 100;
+  font-size: 15px;
+}
+</style>
