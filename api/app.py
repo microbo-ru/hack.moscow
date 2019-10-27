@@ -35,7 +35,7 @@ def map():
 
 @app.route('/api/left')
 def left():
-    id = (54746)
+    id = (58550)
 
     return Response(json.dumps(df[str(id)]), headers={"Content-type": "application/json"})
 

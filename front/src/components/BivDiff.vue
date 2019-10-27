@@ -1,18 +1,15 @@
 <template>
   <v-row>
     <v-col>
-      <!-- {{left}} -->
-      <person :data="left"/>
+      <person :data="left" alignment="right"/>
     </v-col>
     <v-col>
-      <!-- {{right}} -->
-      <person :data="right"/>
+      <person :data="right" alignment="left"/>
     </v-col>
   </v-row>
 </template>
 
 <script>
-//import * as d3 from "d3";
 import Person from "../components/Person";
 
 export default {
