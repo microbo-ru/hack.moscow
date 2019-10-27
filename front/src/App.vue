@@ -1,11 +1,23 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Статистика</router-link>|
-      <router-link to="/BivDif">Бив Дифф</router-link>|
-      <router-link to="/nukemap">Карта</router-link>|
-      <router-link to="/summvis">Наглядность</router-link>|
-      <router-link to="/about">О нас</router-link>
+      <v-tabs>
+        <v-tab>
+          <router-link to="/">Статистика</router-link>
+        </v-tab>
+        <v-tab>
+          <router-link to="/BivDif">Бив Дифф</router-link>
+        </v-tab>
+        <v-tab>
+          <router-link to="/nukemap">Карта</router-link>
+        </v-tab>
+        <v-tab>
+          <router-link to="/summvis">Наглядность</router-link>
+        </v-tab>
+        <v-tab>
+          <router-link to="/about">О нас</router-link>
+        </v-tab>
+      </v-tabs>
     </div>
     <router-view />
   </div>

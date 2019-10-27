@@ -1,11 +1,12 @@
 <template>
-  <v-app>
+  <v-app width="80%">
     <div v-if="person_info">
-      <v-row>
+      <v-row class="md-6">
+        <v-col cols="1"></v-col>
         <v-col>
           <v-card>
             <v-img
-              height="600px"
+              height="400px"
               src="http://www.assembly.spb.ru/images/content/%D0%B4%D0%B5%D0%BF%D1%83%D1%82%D0%B0%D1%82%D1%8B%206%20%D1%81%D0%BE%D0%B7%D1%8B%D0%B2/%D1%80%D0%B0%D1%81%D1%81%D1%83%D0%B4%D0%BE%D0%B2.jpg"
             ></v-img>
             <v-card-title>{{person_info.name}}</v-card-title>
@@ -22,9 +23,10 @@
                 >{{year}}</v-btn>
               </v-col>
             </v-row>
-            <v-row></v-row>
+            <v-row>В {{year_selected}} депутат задекларировал {{person_info["years"][year_selected]["personal_income"]}} рубелей дохода</v-row>
           </v-container>
         </v-col>
+        <v-col cols="1"></v-col>
       </v-row>
     </div>
   </v-app>
