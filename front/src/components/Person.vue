@@ -1,12 +1,16 @@
 <template>
   <div>
-    {{data.name}} ({{alignment}})
+    <div class="fio">
+      {{data.name}} ({{alignment}})
+    </div>
     <hr>
-    {{data.region["name"]}}
+      {{data.region["name"]}}
     <hr>
     <div v-for="(t, idx) of data.years" :key=idx> 
       <hr><hr>
-      {{idx}}
+      <div class="year">
+        {{idx}}
+      </div>
       <hr><hr>
       Доход: {{t.personal_income}}
       <v-img height="64px" width="64px" src="images/rub.png"/>
@@ -19,6 +23,17 @@
     </div>
   </div>
 </template>
+
+<style>
+  .fio {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .year {
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  }
+</style> 
+
 
 <script>
 export default {
