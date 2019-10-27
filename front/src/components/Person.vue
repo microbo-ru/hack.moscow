@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div v-if="data">
     <div class="fio">
       {{data.name}} ({{alignment}})
     </div>
     <hr>
-      {{data.region["name"]}}
+      <!-- {{data.region["name"]}} -->
     <hr>
     <div v-for="(t, idx) of data.years" :key=idx> 
       <hr><hr>
