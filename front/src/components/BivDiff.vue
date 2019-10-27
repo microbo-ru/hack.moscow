@@ -22,13 +22,13 @@ export default {
   },
   methods: {
     async fetch_data() {
-      this.left = await fetch("http://localhost:5000/api/left", {
+      this.left = await fetch("http://localhost:5000/api/left/58550", {
         "Content-type": "application/json"
       }).then(res => {
         return res.json();
       });
 
-      this.right = await fetch("http://localhost:5000/api/right", {
+      this.right = await fetch("http://localhost:5000/api/right/58951", {
         "Content-type": "application/json"
       }).then(res => {
         return res.json();
