@@ -33,17 +33,18 @@ def map():
 
     return Response(json.dumps([df[str(id)] for id in ids]), headers={"Content-type": "application/json"})
 
-@app.route('/api/left')
-def left():
-    id = (58550)
+
+@app.route('/api/left/<id>')
+def left(id):
 
     return Response(json.dumps(df[str(id)]), headers={"Content-type": "application/json"})
 
-@app.route('/api/right')
-def right():
-    id = (58951)
+
+@app.route('/api/right/<id>')
+def right(id):
 
     return Response(json.dumps(df[str(id)]), headers={"Content-type": "application/json"})
+
 
 @app.route('/api/nagl')
 def nagl():
