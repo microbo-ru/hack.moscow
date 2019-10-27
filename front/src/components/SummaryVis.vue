@@ -1,6 +1,6 @@
 <template>
   <v-app width="80%">
-    <div v-if="person_info">
+    <div v-if="person_info != {}">
       <v-row class="md-6">
         <v-col cols="1"></v-col>
         <v-col>

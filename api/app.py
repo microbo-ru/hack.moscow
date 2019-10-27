@@ -46,6 +46,11 @@ def right(id):
     return Response(json.dumps(df[str(id)]), headers={"Content-type": "application/json"})
 
 
+@app.route('/api/left=<id1>&right=<id2>')
+def lr(id1, id2):
+    return Response(json.dumps([df[str(id1)], df[str(id2)]]), headers={"Content-type": "application/json"})
+
+
 @app.route('/api/nagl')
 def nagl():
     ids = 32283
