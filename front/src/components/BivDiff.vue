@@ -22,13 +22,16 @@ export default {
   },
   methods: {
     async fetch_data() {
-      this.left = await fetch("http://localhost:5000/api/left/58550", {
+      // 58550
+      this.left = await fetch("http://localhost:5000/api/left/" +
+        this.$route.query.left, {
         "Content-type": "application/json"
       }).then(res => {
         return res.json();
       });
-
-      this.right = await fetch("http://localhost:5000/api/right/58951", {
+      // 58951
+      this.right = await fetch("http://localhost:5000/api/right/" +
+        this.$route.query.right, {
         "Content-type": "application/json"
       }).then(res => {
         return res.json();
@@ -36,6 +39,9 @@ export default {
     }
   },
   created() {
+    // var t = this.$route.query.test
+    // console.log(t);
+    // console.log("TT")
     this.fetch_data();
   },
   components: {

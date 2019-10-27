@@ -1,7 +1,8 @@
 <template>
-  <div v-if="data">
+  <div v-if="data !== undefined">
     <div class="fio">
-      {{data.name}} ({{alignment}})
+      {{data.name}} 
+      <!-- ({{alignment}}) -->
     </div>
     <hr>
       <!-- {{data.region["name"]}} -->
