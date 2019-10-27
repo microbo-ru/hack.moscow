@@ -2,14 +2,15 @@
   <v-app width="80%">
     <div v-if="!loading">
       <v-row class="md-6">
-        <v-col cols="1"></v-col>
+        <v-col cols="2"></v-col>
         <v-col>
-          <v-card>
+          <v-card width="400px">
             <v-img
-              height="400px"
+              height="300px"
+              width="400px"
               src="http://www.assembly.spb.ru/images/content/%D0%B4%D0%B5%D0%BF%D1%83%D1%82%D0%B0%D1%82%D1%8B%206%20%D1%81%D0%BE%D0%B7%D1%8B%D0%B2/%D1%80%D0%B0%D1%81%D1%81%D1%83%D0%B4%D0%BE%D0%B2.jpg"
             ></v-img>
-            <v-card-title>{{person_info.name}}</v-card-title>
+            <v-card-title style="display:block">{{person_info.name}}</v-card-title>
             <v-card-text>В сентябре 2016 г. избран депутатом Законодательного Собрания Санкт-Петербурга 6-го созыва по единому избирательному округу от Санкт-Петербургского городского отделения политической партии "КОММУНИСТИЧЕСКАЯ ПАРТИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ".</v-card-text>
           </v-card>
         </v-col>
@@ -91,7 +92,7 @@
             </v-row>
           </v-container>
         </v-col>
-        <v-col cols="1"></v-col>
+        <v-col cols="2"></v-col>
       </v-row>
     </div>
   </v-app>
