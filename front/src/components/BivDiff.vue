@@ -1,11 +1,13 @@
 <template>
-  <v-row>
+  <v-row class="md-6">
+    <v-col cols="1"/>
     <v-col>
       <person :data="left" alignment="right"/>
     </v-col>
     <v-col>
       <person :data="right" alignment="left"/>
     </v-col>
+    <v-col cols="1"/>
   </v-row>
 </template>
 
