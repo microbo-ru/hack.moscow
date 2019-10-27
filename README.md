@@ -1,6 +1,5 @@
 HACK MOSCOW
 
-
 ### Выбросы (outliers) 2018 по трем переменным. Доход, квартиры, земля
 
 ![](doc/umap1.png)
@@ -8,3 +7,7 @@ HACK MOSCOW
 ![](doc/umap2.png)
 
 ![](doc/umap3.png)
+
+### Баттл/Дифф. Сравнение двух персон
+
+![](doc/battle.png)
