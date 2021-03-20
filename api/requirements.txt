@@ -13,7 +13,7 @@ flask==1.1.1
 flask-cors==3.0.8
 idna==2.8
 itsdangerous==1.1.0
-jinja2==2.10.3
+jinja2==2.11.3
 libblas==3.8.0
 libcblas==3.8.0
 libcxx==9.0.0
