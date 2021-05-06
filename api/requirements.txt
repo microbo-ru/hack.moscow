@@ -10,7 +10,7 @@ chardet==3.0.4
 click==7.0
 cryptography==2.7
 flask==1.1.1
-flask-cors==3.0.8
+flask-cors==3.0.9
 idna==2.8
 itsdangerous==1.1.0
 jinja2==2.10.3
