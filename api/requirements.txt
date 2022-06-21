@@ -24,7 +24,7 @@ libopenblas==0.3.7
 llvm-openmp==8.0.1
 markupsafe==1.1.1
 ncurses==6.1
-numpy==1.17.3
+numpy==1.22.0
 openssl==1.1.1c
 pandas==0.25.2
 pip==19.3.1
